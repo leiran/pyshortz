@@ -8,33 +8,33 @@ mammal, this one wild and not seen in North America.
 
 
 class main:
-    wild_mammals = set(
-                  ['bison',
-                   'fox',
-                   'wolf',
-                   'buffalo',
-                   'hare',
-                   'rabbit',
-                   'squirrel',
-                   'camel',
-                   'moose',
-                   'soomewoc' #ringer moose + cow = soomewoc
+    wild_mammals = set([
+#                   ['bison',
+#                    'fox',
+#                    'wolf',
+#                    'buffalo',
+#                    'hare',
+#                    'rabbit',
+#                    'squirrel',
+#                    'camel',
+#                    'moose',
+#                    'soomewoc' #ringer moose + cow = soomewoc
                    ])
-    domestic_mammals = set(
-                       ['cow',
-                        'cat',
-                        'dog',
-                        'pig',
-                        'sheep',
-                        'llama'
+    domestic_mammals = set([
+#                        ['cow',
+#                         'cat',
+#                         'dog',
+#                         'pig',
+#                         'sheep',
+#                         'llama'
                         ])
     
-    def __init__(self, DEBUG):
+    def __init__(self, DEBUG=False):
         self.DEBUG = DEBUG
         # self.combine_and_compare()
     
     def combine_and_compare(self):
-        alpha = ["".join(sorted(animal)) for animal in self.wild_mammals]
+        alpha = ["".join(sorted(animal.lower())) for animal in self.wild_mammals]
         if self.DEBUG: print(alpha)
         candidate_list = [] #contains tuples (wild_mammal, domestic_mammal, correlated alpha)
         for wild_mammal in list(self.wild_mammals):
@@ -59,21 +59,46 @@ class main:
 
 if __name__ == '__main__':
     m = main(DEBUG=False)
-    wild = ['monkey'
-           ,'ape'
-           ,'lion'
-           ,'tiger'
-           ,'bear'
+    wild = ['moose'
+           ,'squirrel'
+           ,'camel'
+           ,'soomewoc'  # ringer
+           ,'erahyopn'  # ringer
+           ,'hare'
            ,'oposum'
-           ,'raccoon'
+           ,'fox'
+           ,'bear'
+           ,'tiger'
+           ,'lion'
+           ,'bison'
            ,'weasel'
+           ,'rabbit'
            ,'beaver'
+           ,'raccoon'
+           ,'wolf'
+           ,'ape'
+           ,'buffalo'
+           ,'monkey'
            ]
-    domestic = ['goat'
-               ,'sheep'
+    domestic = ['sheep'
+               ,'horse'
+               ,'pony'
+               ,'yak'
+               ,'cow'
+               ,'guinea pig'
                ,'dog'
-               ,'cat'
+               ,'mule'
+               ,'pig'
+               ,'ferret'
+               ,'rabbit'
                ,'llama'
+               ,'cattle'
+               ,'alpaca'
+               ,'cat'
+               ,'mouse'
+               ,'goat'
+               ,'donkey'
+               ,'rat'
                ]
     m.add_wild(wild)
     m.add_domestic(domestic)
